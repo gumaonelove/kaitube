@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn Daemon kaitube
+After=network.target
+
+
+[Service]
+User=asr
+WorkingDirectory=/home/asr/projects/kaitube/
+ExecStart=/home/asr/miniconda3/envs/asr/bin/python app/app.py
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
