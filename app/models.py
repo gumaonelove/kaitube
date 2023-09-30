@@ -3,7 +3,9 @@ from pydantic import BaseModel
 
 class Answer(BaseModel):
     '''wav'''
-    file: str
-    message: str
+    video: str
+    transcription: str
+    video_message: str
+    transcription_message: str
     description: str
     url: str
