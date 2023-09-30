@@ -1,0 +1,11 @@
+.PageLoader {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.loginPage {
+    min-height: 100vh;
+}

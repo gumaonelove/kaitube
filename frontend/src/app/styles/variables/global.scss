@@ -1,0 +1,59 @@
+:root {
+    // шрифт
+    --font-family-main:
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        roboto,
+        "Helvetica Neue",
+        "Noto Sans",
+        "Liberation Sans",
+        arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji";
+
+    // размеры шрифтов
+    --font-size-s: 16px;
+    --font-line-s: 25.6px;
+    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+    --font-size-xm: 18px;
+    --font-line-xm: 24px;
+    --font-xm: var(--font-size-xm) / var(--font-line-xm) var(--font-family-main);
+    --font-size-m: 20px;
+    --font-line-m: 28px;
+    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+    --font-size-l: 24px;
+    --font-line-l: 32px;
+    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+    --font-size-xl: 32px;
+    --font-line-xl: 40px;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+    // жирность шрифтов
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+
+    // цвета
+    --black: #000;
+    --white: #fff;
+    --cui-sidebar-bg: #3c4b64;
+    --bg-color: #ebedef;
+    --border-color: rgb(177 183 193);
+    --border-card-color: #d6dbdf;
+    --border-visited-color: #998fed;
+    --red-light: #cf2d2d;
+    --red-warning: #ec7063;
+    --footer-color: #85929e;
+    --secondary-menu-default-text-color: #44546F;
+    --secondary-menu-active-border-color: #3498DB;
+
+    // skeleton
+    --skeleton-color: #b9b9b9;
+    --skeleton-shadow: rgba(60 75 100 / 30%);
+}

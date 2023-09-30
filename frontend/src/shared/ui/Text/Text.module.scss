@@ -1,0 +1,56 @@
+.Text {
+    &.s {
+        font: var(--font-s);
+    }
+
+    &.xm {
+        font: var(--font-xm);
+    }
+
+    &.m {
+        font: var(--font-m);
+    }
+
+    &.l {
+        font: var(--font-l);
+    }
+
+    &.xl {
+        font: var(--font-xl);
+    }
+
+    &.regular {
+        font-weight: var(--font-regular);
+    }
+
+    &.medium {
+        font-weight: var(--font-medium);
+    }
+
+    &.semibold {
+        font-weight: var(--font-semibold);
+    }
+
+    &.bold {
+        font-weight: var(--font-bold);
+    }
+
+    &.extrabold {
+        font-weight: var(--font-extrabold);
+    }
+}
+
+.error {
+    color: var(--red-light);
+    display: flex;
+    align-items: center;
+}
+
+.errorIcon {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.light {
+    color: var(--footer-color);
+}
