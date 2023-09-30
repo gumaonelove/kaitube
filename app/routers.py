@@ -27,7 +27,7 @@ async def listening(video: UploadFile = File(...), transcription: UploadFile = F
         'video': video.filename,
         'transcription': transcription.filename,
         "video_message": video_message,
-        'transcription_message': summarization_transcription,
-        'description': 'Тут будет описание для видео',
+        'transcription_message': transcription_message,
+        'description': summarization_transcription,
         'url': "Тут будет ссылка на файл"
     }
