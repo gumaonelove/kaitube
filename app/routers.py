@@ -16,7 +16,10 @@ async def listening(video: UploadFile = File(...), transcription: UploadFile = F
     '''Аудирование - изучение татарских слов'''
 
     video_message = get_file(video)
+    assert video_message == 'success', 'Не удалось сохранить файл с видео'
     transcription_message = get_file(transcription)
+    assert transcription_message == 'success', 'Не удалось сохранить файл с транскрипцией'
+
     transcription_text = get_transcription(transcription.filename)
     summarization_transcription = stt_summarizer.predict(transcription_text)
 
