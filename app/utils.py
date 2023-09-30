@@ -4,6 +4,7 @@ def get_file(file) -> str:
         with open('app/files/' + file.filename, 'wb') as f:
             f.write(contents)
     except Exception:
+        print('ERROR', Exception)
         return "There was an error uploading the video"
     finally:
         file.file.close()
