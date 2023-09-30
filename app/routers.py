@@ -1,8 +1,8 @@
 from fastapi import APIRouter, File, UploadFile
-
+from .models import Answer
 router = APIRouter()
 
-@router.post('/listening/')
+@router.post('/listening/', response_model=Answer)
 async def listening(file: UploadFile = File(...)) -> dict:
     '''Аудирование - изучение татарских слов'''
     try:
