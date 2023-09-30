@@ -13,6 +13,9 @@ class Summarizer:
             device=0
         )
         self.model_max_length = model_max_length
-    def predict(self, text: str):
+
+
+    def predict(self, text: str) -> str:
         text = self.reg.sub('', text)
-        return self.summarizer(text[:self.model_max_length])
+        text = self.summarizer(text[:self.model_max_length])[0]['summary_text']
+        return text
