@@ -14,7 +14,6 @@ class Summarizer:
         )
         self.model_max_length = model_max_length
 
-
     def predict(self, text: str) -> str:
         text = self.reg.sub('', text)
         text = self.summarizer(text[:self.model_max_length])[0]['summary_text']
