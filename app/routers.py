@@ -1,5 +1,5 @@
 from fastapi import APIRouter, File, UploadFile
-from .models import Answer
+from models import Answer
 router = APIRouter()
 
 @router.post('/listening/', response_model=Answer)
