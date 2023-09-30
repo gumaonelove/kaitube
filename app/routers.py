@@ -1,18 +1,9 @@
 from fastapi import APIRouter, File, UploadFile
 from models import Answer
+from utils import get_file
+
+
 router = APIRouter()
-
-def get_file(file) -> dict:
-    try:
-        contents = file.file.read()
-        with open(file.filename, 'wb') as f:
-            f.write(contents)
-    except Exception:
-        return {"message": "There was an error uploading the video"}
-    finally:
-        file.file.close()
-
-    return {'message': 'success'}
 
 
 @router.post('/listening/', response_model=Answer)
