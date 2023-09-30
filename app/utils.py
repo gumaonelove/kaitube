@@ -1,7 +1,7 @@
 def get_file(file) -> str:
     try:
         contents = file.file.read()
-        with open(file.filename, 'wb') as f:
+        with open('app/files/' + file.filename, 'wb') as f:
             f.write(contents)
     except Exception:
         return "There was an error uploading the video"

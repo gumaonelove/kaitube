@@ -1,0 +1,17 @@
+.Breadcrumbs {
+    &.lists {
+        flex-wrap: wrap;
+    }
+}
+
+.listBreadcrumb {
+    margin-bottom: 5px;
+}
+
+.breadcrumbLink {
+    margin-right: 15px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
