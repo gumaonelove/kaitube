@@ -9,3 +9,8 @@ def get_file(file) -> str:
         file.file.close()
 
     return 'success'
+
+def get_transcription(file_name: str) -> str:
+    with open('app/files/' + file_name, 'r') as f:
+        text = f.read()
+    return text
