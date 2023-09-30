@@ -8,7 +8,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://tat-asr.api.tatarby.tugantel.tatar"
+    "https://kaitube.web-ildev.ru"
 ]
 
 app.add_middleware(
