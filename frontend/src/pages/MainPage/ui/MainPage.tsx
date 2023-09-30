@@ -33,8 +33,14 @@ const MainPage = () => {
         if (e.target.files![0].name.split('.')[1] !== 'mp4' && e.target.files![0].type !== 'video/mp4') {
             addToast(Toast.error('Разрешены файлы, имеющие только расширение .mp4'));
         } else if (e.target.files) {
-            setVideoFile(e.target.files[0]);
-            seVideoSrc(URL.createObjectURL(e.target.files[0]));
+            if (e.target.files[0].size > 100 * 1024 * 1024) {
+                addToast(Toast.error('Файл слишком большой. Максимальный размер - 100 МБ.'));
+                // @ts-ignore
+                e.target.value = null;
+            } else {
+                setVideoFile(e.target.files[0]);
+                seVideoSrc(URL.createObjectURL(e.target.files[0]));
+            }
         }
     };
 
@@ -184,7 +190,7 @@ const MainPage = () => {
                                 [],
                             )}
                         >
-                            Оба файла обязательны к прикреплению
+                            Оба файла обязательны к прикреплению. Размер видео не более 100МБ.
                         </Text>
                     </div>
                 )}
