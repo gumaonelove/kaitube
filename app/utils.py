@@ -1,3 +1,6 @@
+import re
+
+
 def get_file(file) -> str:
     try:
         contents = file.file.read()
@@ -16,6 +19,7 @@ def get_transcription(file_name: str) -> str:
     try:
         with open(file_name, 'r') as f:
             text = f.read()
+            text = self.reg.sub('', text)
         return text
     except Exception:
         print('ERROR', Exception)

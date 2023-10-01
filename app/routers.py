@@ -7,7 +7,7 @@ from video_to_text import VideoEncode
 
 router = APIRouter()
 stt_summarizer = Summarizer(
-    model_path="/home/asr/projects/kaitube/models/s-rug-gas-2048-video-stt/checkpoint-110/",
+    model_path="/home/asr/projects/kaitube/models/IlyaGusev-mbart_ru_sum_gazeta-finetune-1024-gas-video/checkpoint-110/",
     model_max_length=2048
 )
 video_to_text = VideoEncode()
@@ -22,11 +22,7 @@ async def listening(video: UploadFile = File(...), transcription: UploadFile = F
     prefix = "summarize: "
 
     transcription_text = get_transcription('app/files/' + transcription.filename)[:1000]
-    print('transcription_text', transcription_text)
     video_text = video_to_text.predict('app/files/' + video.filename)
-    if not video_text:
-        video_text = ''
-    print('video_text', video_text)
 
     summarization = stt_summarizer.predict(prefix + transcription_text + '<tab>' + video_text)
 
