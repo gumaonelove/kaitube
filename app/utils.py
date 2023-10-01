@@ -32,4 +32,4 @@ def get_bert_extractive_summarizer(text: str) -> str:
     headers = {"Content-type": "text/plain"}
     response = requests.post(url, headers=headers, data=text.encode())
 
-    return response.json()['summary']
+    return response.json()
