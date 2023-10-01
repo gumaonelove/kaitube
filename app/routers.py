@@ -7,7 +7,7 @@ from video_to_text import VideoEncode
 
 router = APIRouter()
 stt_summarizer = Summarizer(
-    model_path="/home/asr/projects/kaitube/models/IlyaGusev-mbart_ru_sum_gazeta-finetune-1024-gas-video/checkpoint-110/",
+    model_path="/home/asr/projects/kaitube/models/s-rug-gas-2048-video-stt/checkpoint-110/",
     model_max_length=2048
 )
 video_to_text = VideoEncode()
