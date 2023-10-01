@@ -24,6 +24,8 @@ async def listening(video: UploadFile = File(...), transcription: UploadFile = F
     transcription_text = get_transcription('app/files/' + transcription.filename)[:1000]
     print('transcription_text', transcription_text)
     video_text = video_to_text.predict('app/files/' + video.filename)
+    if not video_text:
+        video_text = ''
     print('video_text', video_text)
 
     summarization = stt_summarizer.predict(prefix + transcription_text + '<tab>' + video_text)

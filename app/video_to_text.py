@@ -48,14 +48,13 @@ class VideoEncode:
             tokens = self.model.generate(pixel_values, **gen_kwargs)
             caption = self.tokenizer.batch_decode(tokens, skip_special_tokens=True)[0]
             captions.append(caption)
-            video_inf = ' '.join(captions)
 
-            # translation
-            input = video_inf
-            input_ids = self.tr_tokenizer.encode(input, return_tensors="pt").to(self.device)
-            outputs = self.translate.generate(input_ids)
-            decoded = self.tr_tokenizer.decode(outputs[0], skip_special_tokens=True)
-            if not decoded:
-                return ''
+        video_inf = ' '.join(captions)
 
-            return decoded
+        # translation
+        input = video_inf
+        input_ids = self.tr_tokenizer.encode(input, return_tensors="pt").to(self.device)
+        outputs = self.translate.generate(input_ids)
+        decoded = self.tr_tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+        return decoded
