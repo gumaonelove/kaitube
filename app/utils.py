@@ -1,5 +1,5 @@
 import re
-
+import requests
 
 def get_file(file) -> str:
     try:
@@ -25,3 +25,11 @@ def get_transcription(file_name: str) -> str:
     except Exception:
         print('ERROR', Exception)
         return "Не удалось открыть файл"
+
+
+def get_bert_extractive_summarizer(text: str) -> str:
+    url = "http://localhost:8080/summarize_by_ratio?ratio=0.1"
+    headers = {"Content-type": "text/plain"}
+    response = requests.post(url, headers=headers, data=text.encode())
+
+    return response.json()['summary']
