@@ -28,7 +28,7 @@ def get_transcription(file_name: str) -> str:
 
 
 def get_bert_extractive_summarizer(text: str) -> str:
-    url = "http://localhost:8080/summarize_by_ratio?ratio=0.1"
+    url = "http://localhost:8080/summarize_by_ratio?ratio=0.2"
     headers = {"Content-type": "text/plain"}
     response = requests.post(url, headers=headers, data=text.encode())
 
