@@ -16,10 +16,11 @@ def get_file(file) -> str:
 
 
 def get_transcription(file_name: str) -> str:
+    reg = re.compile('[^а-яА-Я ]')
     try:
         with open(file_name, 'r') as f:
             text = f.read()
-            text = self.reg.sub('', text)
+            text = reg.sub('', text)
         return text
     except Exception:
         print('ERROR', Exception)
