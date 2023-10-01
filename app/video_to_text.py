@@ -55,5 +55,7 @@ class VideoEncode:
             input_ids = self.tr_tokenizer.encode(input, return_tensors="pt").to(self.device)
             outputs = self.translate.generate(input_ids)
             decoded = self.tr_tokenizer.decode(outputs[0], skip_special_tokens=True)
+            if not decoded:
+                return ''
 
             return decoded
