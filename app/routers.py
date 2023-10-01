@@ -1,6 +1,6 @@
 from fastapi import APIRouter, File, UploadFile
 from models import Answer
-from utils import get_file, get_transcription
+from utils import get_file, get_transcription, get_bert_extractive_summarizer
 from stt_summarization import Summarizer
 from video_to_text import VideoEncode
 
@@ -21,10 +21,11 @@ async def listening(video: UploadFile = File(...), transcription: UploadFile = F
     transcription_message = get_file(transcription)
     prefix = "summarize: "
 
-    transcription_text = get_transcription('app/files/' + transcription.filename)[:1000]
+    transcription_text = get_transcription('app/files/' + transcription.filename)
+    summarization_transcription = get_bert_extractive_summarizer(transcription_text)[:1000]
     video_text = video_to_text.predict('app/files/' + video.filename)
 
-    summarization = stt_summarizer.predict(prefix + transcription_text + '<tab>' + video_text)
+    summarization = stt_summarizer.predict(prefix + summarization_transcription + '<tab>' + video_text)
 
     return {
         'video': video.filename,
