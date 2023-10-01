@@ -22,17 +22,14 @@ async def listening(video: UploadFile = File(...), transcription: UploadFile = F
     prefix = "summarize: "
 
     transcription_text = get_transcription('app/files/' + transcription.filename)
-    summarization_transcription = get_bert_extractive_summarizer(transcription_text)
-    print('summarization_transcription', summarization_transcription)
-    if summarization_transcription:
-        summarization_transcription = summarization_transcription['summary'][:1000]
+    if transcription_text:
+        summarization_transcription = get_bert_extractive_summarizer(transcription_text)['summary'][:1000]
     else:
         summarization_transcription = ' '
 
     video_text = video_to_text.predict('app/files/' + video.filename)
-    video_transcription = get_bert_extractive_summarizer(video_text)
-    if video_transcription:
-        video_transcription = video_transcription['summary'][:1000]
+    if video_text:
+        video_transcription = get_bert_extractive_summarizer(video_text)['summary'][:1000]
     else:
         video_transcription = ' '
 
